@@ -4,14 +4,13 @@ from urllib import request
 
 from celery import Celery
 from celery.utils.log import get_task_logger
-from decouple import config
 
 logger = get_task_logger(__name__)
 
 BASEDIR = os.path.join(os.path.dirname(__file__), 'files')
-RABBITMQ_URL = config('RABBITMQ_URL', 'amqp://guest:guest@localhost:5672/')
 
-app = Celery('tasks', backend='rpc://', broker=RABBITMQ_URL)
+app = Celery('tasks')
+app.config_from_object('celeryconfig')
 
 
 @app.task
