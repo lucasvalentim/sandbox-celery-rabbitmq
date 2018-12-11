@@ -10,7 +10,8 @@ NOW = datetime.utcnow()
 
 print(NOW.isoformat())
 
-for _ in range(QNT_TASKS):
+for num, _ in enumerate(range(QNT_TASKS)):
+    print(num)
     a = random.randint(1, 100)
     b = random.randint(-100, 1)
     LATER = NOW + timedelta(seconds=10)

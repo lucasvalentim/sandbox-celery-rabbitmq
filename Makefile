@@ -24,7 +24,7 @@ pep8:
 	@pep8 --filename="*.py" --ignore=W --exclude="manage.py,settings.py,migrations" --first --show-source --statistics --count .
 
 celery:
-	@celery -A tasks worker --loglevel=DEBUG -c 1 -Q default
+	@celery -A tasks worker --loglevel=INFO -c 1 -Q default
 
 celery.beat:
 	@celery -A tasks beat
