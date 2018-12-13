@@ -1,7 +1,8 @@
 import argparse
 import pika
 
-parser = argparse.ArgumentParser(description=('Check connection to RabbitMQ server'))  # noqa
+parser = argparse.ArgumentParser(description=('Check connection to RabbitMQ'
+                                              ' server'))
 parser.add_argument('--server', required=True, help='Define RabbitMQ server')
 parser.add_argument('--virtual_host', default='/', help='Define virtual host')
 parser.add_argument('--ssl', action='store_true',

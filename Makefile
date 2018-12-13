@@ -21,7 +21,7 @@ clean:
 	@find . -name '*~' -exec rm -f {} \;
 
 pep8:
-	@pep8 --filename="*.py" --ignore=W --exclude="manage.py,settings.py,migrations" --first --show-source --statistics --count .
+	@pycodestyle --filename="*.py" --ignore=W --exclude="manage.py,settings.py,migrations" --show-source --show-pep8 --statistics --count --format='%(path)s|%(row)d|%(col)d| [%(code)s] %(text)s' .
 
 celery:
 	@celery -A tasks worker --loglevel=INFO -c 1 -Q default
