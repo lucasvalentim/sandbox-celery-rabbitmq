@@ -1,8 +1,8 @@
 from loafer.ext.aws.routes import SQSRoute
-from .handlers import print_handler, error_handler
+from .handlers import handler_add, error_handler
 
 routes = (
     SQSRoute('loafer-test', {'options': {'WaitTimeSeconds': 3}},
-             handler=print_handler,
+             handler=handler_add,
              error_handler=error_handler),
 )
