@@ -4,7 +4,7 @@
 
 .PHONY: all help
 
-all: help requirements check_rabbitmq clean celery celery.beat celery.purge celery.kill celery.two celery.six pep8 rabbitmq.config
+all: help requirements check_rabbitmq clean celery celery.beat celery.purge celery.kill celery.two celery.ten pep8 rabbitmq.config
 
 help:
 	@echo 'Makefile *** alpha *** Makefile'
@@ -29,8 +29,8 @@ celery:
 celery.two:
 	@celery -A tasks worker --loglevel=INFO -c 2 -Q default
 
-celery.six:
-	@celery -A tasks worker --loglevel=INFO -c 6 -Q default
+celery.ten:
+	@celery -A tasks worker --loglevel=INFO -c 10 -Q default
 
 celery.beat:
 	@celery -A tasks beat
