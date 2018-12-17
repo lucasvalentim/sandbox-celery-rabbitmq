@@ -15,13 +15,13 @@ if 'sqs://' in BROKER_URL:
     BROKER_TRANSPORT = 'sqs'
     CELERY_ENABLE_REMOTE_CONTROL = False
     CELERY_SEND_EVENTS = False
-    SQS_QUEUE_NAME = 'celery-sandbox-sqs'
+    SQS_QUEUE_NAME = config('QUEUE_NAME', default='celery-sandbox-sqs')
 
     BROKER_TRANSPORT_OPTIONS = {
         'region': 'us-east-1',
         'polling_interval': 20,
         'visibility_timeout': 1800,
-        'queue_name_prefix': 'celery-sandbox-'
+        'queue_name_prefix': f'{SQS_QUEUE_NAME}-'
     }
 
 
